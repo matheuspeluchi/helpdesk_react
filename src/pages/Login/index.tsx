@@ -73,7 +73,7 @@ const Login: React.FC = () => {
         />
 
         <Button fullWidth variant="contained" color="primary" onClick={() => singin()}>
-          Teste
+          Signin
         </Button>
       </form>
     </div>
