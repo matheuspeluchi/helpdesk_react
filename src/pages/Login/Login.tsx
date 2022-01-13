@@ -2,8 +2,7 @@ import React from "react";
 
 import styles from "./styles.module.css";
 import Logo from "assets/img/login-image.svg";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faKey } from "@fortawesome/free-solid-svg-icons";
+import { Button, TextField } from "@material-ui/core";
 
 import axios from "plugins/axios";
 
@@ -34,23 +33,19 @@ const Login: React.FC = () => {
               @
             </span>
           </div>
-          <input type="text" className="form-control" placeholder="Ex. jogaosilva@mail.com" aria-label="Username" aria-describedby="basic-addon1" />
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Ex. jogaosilva@mail.com"
+            aria-label="Username"
+            aria-describedby="basic-addon1"
+          />
         </div>
 
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text ">
-              <span>
-                <FontAwesomeIcon icon={faKey} />
-              </span>
-            </span>
-          </div>
-          <input type="text" className="form-control" placeholder="Ex. 123456" />
-        </div>
-
-        <button type="button" onClick={() => singin()} disabled={disabled} className={`btn btn-primary ${styles.fullWidth}`}>
-          Login
-        </button>
+        <TextField placeholder="Ex. joãosilva@gmail.com" />
+        <Button fullWidth variant="contained" color="primary" onClick={() => singin()}>
+          Teste
+        </Button>
       </form>
     </div>
   );
