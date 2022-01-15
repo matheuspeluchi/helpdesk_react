@@ -1,8 +1,10 @@
 import React from "react";
 
 import Logo from "assets/img/login-image.svg";
-import { Button, TextField, makeStyles, Box } from "@material-ui/core";
+import { Button, TextField, makeStyles, Box, InputAdornment } from "@material-ui/core";
 import axios from "plugins/axios";
+import { AccountCircle, Password } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles({
   root: {
@@ -39,15 +41,15 @@ const useStyles = makeStyles({
 const Login: React.FC = () => {
   const classes = useStyles();
   const disabled = false;
+  const route = useNavigate();
   const credentials = {
     email: "valdir@mail.com",
     senha: "123",
   };
   const singin = (): void => {
     axios.post("/login", credentials).then((res) => {
-      console.log(res.headers["authorization"]);
       localStorage.setItem("Authorization", res.headers["authorization"]);
-      console.log(res.data);
+      route("/");
     });
   };
 
@@ -62,6 +64,13 @@ const Login: React.FC = () => {
             label="Username"
             variant="outlined"
             placeholder="Ex. joãosilva@gmail.com"
+            InputProps={{
+              startAdornment: (
+                <InputAdornment position="start">
+                  <AccountCircle />
+                </InputAdornment>
+              ),
+            }}
           />
         </Box>
         <TextField
@@ -70,6 +79,13 @@ const Login: React.FC = () => {
           type="password"
           label="Password"
           placeholder="Ex.123"
+          InputProps={{
+            startAdornment: (
+              <InputAdornment position="start">
+                <Password />
+              </InputAdornment>
+            ),
+          }}
         />
 
         <Button fullWidth variant="contained" color="primary" onClick={() => singin()}>
