@@ -1,12 +1,12 @@
 const INITIAL_STATE = {
-  open: true,
+  drawer: true,
 };
 
-export default function drawer(state = INITIAL_STATE, action: any) {
+export function app(state = INITIAL_STATE, action: any) {
   if (action.type === "TOGGLE_DRAWER") {
     return {
       ...state,
-      open: !state.open,
+      drawer: !state.drawer,
     };
   }
   return state;

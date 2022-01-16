@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
 
-import drawer from "./drawer";
+import { app } from "./app";
 
-export default combineReducers({ drawer });
+export default combineReducers({ app });
