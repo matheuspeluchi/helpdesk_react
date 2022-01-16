@@ -7,7 +7,8 @@ import { styled } from "@mui/material/styles";
 import MenuIcon from "@mui/icons-material/Menu";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import { IconButton, Typography } from "@mui/material";
+import { IconButton } from "@mui/material";
+import RouterBreadcrumbs from "components/breadcrumb/breadCrumb";
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
 }
@@ -53,9 +54,7 @@ const ApplicationBar = ({ drawer, toggleDrawer }: any) => {
         >
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6" noWrap component="div">
-          Mini variant drawer
-        </Typography>
+        <RouterBreadcrumbs />
       </Toolbar>
     </AppBar>
   );
