@@ -48,7 +48,7 @@ const Login: React.FC = () => {
   };
   const singin = (): void => {
     axios.post("/login", credentials).then((res) => {
-      localStorage.setItem("Authorization", res.headers["authorization"]);
+      localStorage.setItem("Authorization", res.headers["authorization"].substring(7));
       route("/");
     });
   };

@@ -6,9 +6,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import Store from "./store";
-import Chamados from "pages/Chamados/chamados";
 import Tecnicos from "pages/Tecnicos/cecnicos";
 import Clientes from "pages/Clientes/clientes";
+import ChamadosList from "pages/Chamados/ChamadosList";
 
 const App: React.FC = () => {
   const theme = createTheme();
@@ -20,7 +20,7 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<Home />}>
-              <Route path="/chamados" element={<Chamados />} />
+              <Route path="/chamados" element={<ChamadosList />} />
               <Route path="/tecnicos" element={<Tecnicos />} />
               <Route path="/clientes" element={<Clientes />} />
             </Route>
