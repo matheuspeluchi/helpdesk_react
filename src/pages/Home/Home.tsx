@@ -1,22 +1,23 @@
 import { Box, CssBaseline } from "@mui/material";
 import ApplicationBar from "components/appBar/AppBar";
 import AppDrawer from "components/drawer/Drawer";
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 
 const Home: React.FC = () => {
   const [contentHeight, setcontentHeight] = useState(400);
-  const screenHeight = document.body.clientHeight;
-  const calcHeight = () => screenHeight - 75 || 400;
 
   useEffect(() => {
     const handleResize = () => {
-      setcontentHeight(calcHeight());
+      const screenHeight = document.body.clientHeight;
+      setcontentHeight(screenHeight - 75 || 400);
     };
+
+    handleResize();
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
-  });
+  }, []);
 
   return (
     <Box sx={{ display: "flex" }}>
